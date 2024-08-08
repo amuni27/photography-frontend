@@ -1,0 +1,10 @@
+<section class="h-12"></section>
+<div class="w-full h-80 flex justify-center  ">
+  <div *ngFor="let slide of slides"
+       class="relative inline-block w-96 h-5/6 shadow-xl bg-orange-700 overflow-hidden rounded-2xl ml-5">
+    <img class=" object-cover w-full h-full rounded-t-lg" src={{slide}} alt="photographer photo">
+    <p class="absolute left-4 bottom-16 z-20 text-white text-2xl shadow-md ">Anne lopez photos</p>
+    <span class=" absolute  bottom-4 text-md text-gray-600 ml-5 pt-2 pb-2 pl-4 pr-4 bg-gray-200 rounded-full cursor-pointer hover:bg-orange-700 hover:text-gray-100" >see more</span>
+  </div>
+</div>
+
