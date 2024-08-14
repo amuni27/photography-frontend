@@ -1,0 +1,21 @@
+<div class="w-full flex flex-wrap mt-20">
+  <div class="w-full h-14 flex justify-center items-center">
+    <span class="p-4 rounded-full bg-gray-200 hover:bg-orange-700 hover:text-white cursor-pointer" (click)="goToAddPhotographerPage()">Add Photographer</span>
+  </div>
+  <div *ngFor="let photographer of photographers" class="w-1/2 h-32 flex items-center justify-center mt-10" >
+    <div class="w-4/5 h-full flex items-center bg-gray-100 rounded-full mt-10 cursor-pointer hover:bg-orange-200" (click)="goTOPhotographerPage(photographer._id)">
+      <div class="w-28 h-28 bg-orange-700 rounded-full overflow-hidden m-0.5 ml-2 relative">
+        <img class="object-cover w-full h-full rounded-t-lg" src="http://localhost:3434/image/{{photographer.picture_url}}" alt="photographer photo">
+      </div>
+      <div class="flex-row justify-center items-center ml-5 ">
+        <p class="mr-2 text-lg text-gray-700">{{ photographer.name }}</p>
+        <p class="mr-2 text-sm text-gray-600">{{ photographer.date_of_birth | date:"YYYY" }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="flex justify-center items-center mt-10">
+  <button class="w-9 h-9 bg-gray-200 text-gray-600 rounded-full mr-2 hover:bg-orange-700 hover:text-white  cursor-pointer disabled:bg-gray-100 disabled:hover:bg-gray-100 disabled:hover:text-gray-600" [disabled]="isNext" ><</button>
+  <button class="w-9 h-9 bg-gray-200 text-gray-600 rounded-full hover:bg-orange-700 hover:text-white  cursor-pointer disabled:bg-gray-100 disabled:hover:bg-gray-100 disabled:hover:text-gray-600" [disabled]="isPrevious" >></button>
+</div>

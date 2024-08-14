@@ -1,73 +1,105 @@
 export class PhotographerData {
-    private _name: string;
-    private _date_of_birth: number;
-    private _artwork: ArtWork[]
+  private id: string;
+  private _name: string;
+  private _date_of_birth: Date;
+  private _picture_url: string;
+  private _artworks: ArtworkData[]
 
-    constructor(name: string, date_of_birth: number, artwork: ArtWork[]) {
-        this._name = name;
-        this._date_of_birth = date_of_birth;
-        this._artwork = artwork;
-    }
 
-    set name(name: string) {
-        this._name = name;
-    }
+  constructor(_id: string, name: string, date_of_birth: Date, picture_url: string, artworks: ArtworkData[]) {
+    this.id = _id;
+    this._name = name;
+    this._date_of_birth = date_of_birth;
+    this._picture_url = picture_url;
+    this._artworks = artworks;
+  }
 
-    set date_of_birth(birthdate: number) {
-        this._date_of_birth = birthdate;
-    }
 
-    set artwork(artwork: ArtWork[]) {
-        this._artwork = artwork;
-    }
+  get _id(): string {
+    return this.id;
+  }
 
-    get name(): string {
-        return this._name
-    }
+  set _id(value: string) {
+    this.id = value;
+  }
 
-    get date_of_birth(): number {
-        return this._date_of_birth
-    }
+  get name(): string {
+    return this._name;
+  }
 
-    get artwork(): ArtWork[] {
-        return this._artwork
-    }
+  set name(value: string) {
+    this._name = value;
+  }
+
+  get date_of_birth(): Date {
+    return this._date_of_birth;
+  }
+
+  set date_of_birth(value: Date) {
+    this._date_of_birth = value;
+  }
+
+  get picture_url(): string {
+    return this._picture_url;
+  }
+
+  set picture_url(value: string) {
+    this._picture_url = value;
+  }
+
+  get artworks(): ArtworkData[] {
+    return this._artworks;
+  }
+
+  set artworks(value: ArtworkData[]) {
+    this._artworks = value;
+  }
 }
 
-class ArtWork {
-    private _title: string;
-    private _created: number;
-    private _photoUrl: string;
+export class ArtworkData {
+  private id: string;
+  private _title: string;
+  private _createdYear: number;
+  private _picture_url: string;
 
 
-    constructor(title: string, created: number, photoUrl: string) {
-        this._title = title;
-        this._created = created;
-        this._photoUrl = photoUrl;
-    }
+  constructor(_id: string, title: string, createdYear: number, picture_url: string) {
+    this.id = _id;
+    this._title = title;
+    this._createdYear = createdYear;
+    this._picture_url = picture_url;
+  }
 
-    set title(title: string) {
-        this._title = title;
-    }
+  get _id(): string {
+    return this.id;
+  }
 
-    set created(created: number) {
-        this._created = created;
-    }
+  set _id(value: string) {
+    this.id = value;
+  }
 
-    set photoUrl(photoUrl: string) {
-        this._photoUrl = photoUrl;
-    }
+  set title(title: string) {
+    this._title = title;
+  }
+
+  set createdYear(createdYear: number) {
+    this._createdYear = createdYear;
+  }
+
+  set picture_url(picture_url: string) {
+    this._picture_url = picture_url;
+  }
 
 
-    get title(): string {
-        return this._title
-    }
+  get title(): string {
+    return this._title
+  }
 
-    get created(): number {
-        return this._created
-    }
+  get createdYear(): number {
+    return this._createdYear
+  }
 
-    get photoUrl(): string {
-        return this._photoUrl
-    }
+  get picture_url(): string {
+    return this._picture_url
+  }
 }

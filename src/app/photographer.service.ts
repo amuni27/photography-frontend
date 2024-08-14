@@ -7,7 +7,7 @@ import { PhotographerData } from './PhotographerData';
   providedIn: 'root'
 })
 export class PhotographerService {
-  baseUrl: string = "http://localhost:3434/photographer"
+  baseUrl: string = "http://localhost:3434/api/photographer"
 
   constructor(private _http: HttpClient) { }
 
@@ -16,10 +16,12 @@ export class PhotographerService {
   }
 
   getAllPhotographer(offset: number, limit: number): Observable<PhotographerData[]> {
-    return this._http.get<PhotographerData[]>(this.baseUrl + "?offset=" + offset + "&& limit=" + limit)
+    console.log(this.baseUrl + "?offset=" + offset + "&&limit=" + limit)
+    return this._http.get<PhotographerData[]>(this.baseUrl + "?offset=" + offset + "&&limit=" + limit)
   }
 
-  addPhotographer(photographer: PhotographerService) {
+  addPhotographer(photographer: FormData) {
+    // console.log(photographer)
     return this._http.post(this.baseUrl, photographer)
   }
 

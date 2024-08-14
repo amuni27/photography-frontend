@@ -1,0 +1,10 @@
+<div class="w-full  flex flex-wrap justify-center mb-20  ">
+  <div class="w-72 ml-5" *ngFor="let artwork of artworks()">
+    <div class=" w-full h-96 mt-10 shadow-xl bg-orange-700 overflow-hidden rounded-2xl cursor-pointer hover:opacity-85" (click)="goTOPhotographerPage(artwork._id)">
+      <img class=" object-cover w-full h-full rounded-t-lg" src="http://localhost:3434/image/{{artwork.picture_url}}" alt="photographer photo">
+    </div>
+    <p class=" text-gray-800 text-lg ">{{ artwork.title }}</p>
+    <p class=" text-gray-800 text-sm ">{{ artwork.createdYear | date:"YYYY" }}</p>
+
+  </div>
+</div>
