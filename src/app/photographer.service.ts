@@ -2,22 +2,23 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PhotographerData } from './PhotographerData';
+import {environment} from "../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PhotographerService {
-  baseUrl: string = "http://localhost:3434/api/photographer"
+  baseUrl: string = environment.PHOTOGRAPHERS_URL
 
   constructor(private _http: HttpClient) { }
 
   getPhotographer(id: string): Observable<PhotographerData> {
-    return this._http.get<PhotographerData>(this.baseUrl + "/" + id)
+    return this._http.get<PhotographerData>(this.baseUrl + environment.FORWARD_SLASH + id)
   }
 
   getAllPhotographer(offset: number, limit: number): Observable<PhotographerData[]> {
-    console.log(this.baseUrl + "?offset=" + offset + "&&limit=" + limit)
-    return this._http.get<PhotographerData[]>(this.baseUrl + "?offset=" + offset + "&&limit=" + limit)
+    console.log(this.baseUrl + environment.OFFSET_BACKEND_URL + offset + environment.LIMIT_BACKEND_URL + limit)
+    return this._http.get<PhotographerData[]>(this.baseUrl + environment.OFFSET_BACKEND_URL + offset + environment.LIMIT_BACKEND_URL + limit)
   }
 
   addPhotographer(photographer: FormData) {
@@ -26,8 +27,13 @@ export class PhotographerService {
   }
 
   deletePhotographer(id: string){
-    return this._http.delete(this.baseUrl+"/"+id)
+    return this._http.delete(this.baseUrl+environment.FORWARD_SLASH+id)
   }
+
+  updatePhotographer(id: string,updatedData:FormData){
+    return this._http.put(this.baseUrl+environment.FORWARD_SLASH+id,updatedData)
+  }
+
 
 
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {PhotographerService} from "../photographer.service";
 import {CommonModule} from "@angular/common";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-photographer-registration-form',
@@ -33,9 +34,9 @@ export class PhotographerRegistrationFormComponent implements OnInit {
 
   addPhotographer(){
     const formData = new FormData()
-    formData.append('name',this._photographerForm.get('name')?.value)
-    formData.append('date_of_birth',this._photographerForm.get('date_of_birth')?.value)
-    formData.append('picture_url',this.file)
+    formData.append(environment.NAME,this._photographerForm.get(environment.NAME)?.value)
+    formData.append(environment.DATE_OF_BIRTH,this._photographerForm.get(environment.DATE_OF_BIRTH)?.value)
+    formData.append(environment.PICTURE_URL,this.file)
     this._photographerService.addPhotographer(formData).subscribe({
       next: photographer=>{
         this.isCheckedVisible = true;

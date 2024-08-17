@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {Router} from "@angular/router";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-photographer-work-slider',
@@ -21,7 +22,7 @@ export class PhotographerWorkSliderComponent {
   ]
 
   goToPhotographerPage() {
-    this._route.navigate(["photographer", "sadsa"],)
+    this._route.navigate([environment.PHOTOGRAPHER_ENDPOINT, "sadsa"],)
   }
 
 

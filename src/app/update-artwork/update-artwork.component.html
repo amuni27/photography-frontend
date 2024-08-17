@@ -3,19 +3,22 @@
     <div class="w-3/4  flex justify-center   items-center" *ngIf="isCheckedVisible">
       <p class="text-4xl  bg-green-400 w-16 h-16 pl-5 pt-2 text-white rounded-full transition">{{'\u2713'}}</p>
     </div>
-    <div class="w-3/4  flex justify-center   items-center">
-      <p class="text-3xl  mb-8">Fill photographer data</p>
+    <div class="w-3/4  flex justify-center   items-center" *ngIf="isLoggedInErrorVisible">
+      <p class="text-xl  bg-red-500  p-5  text-white  transition">{{errorMessage}}</p>
     </div>
-    <form [formGroup]="_photographerForm" (ngSubmit)="addPhotographer()">
-      <input name="name" type="text" placeholder="full name" formControlName="name"
+    <div class="w-3/4  flex justify-center   items-center">
+      <p class="text-3xl  mb-8">update photographer data</p>
+    </div>
+    <form  (ngSubmit)="updateArtwork()">
+      <input name="title" type="text" placeholder="title" [(ngModel)]="artwork.title"
              class="w-3/4 h-20 p-4 shadow-lg border-2 border-gray-300 rounded-t-3xl text-2xl focus:border-orange-700">
-      <input name="date_of_birth" type="Date" formControlName="date_of_birth"
+      <input name="createdYear" type="Date" [(ngModel)]="artwork.createdYear"
              class="w-3/4 h-20 p-4 border-l-2 border-r-2 border-gray-300  text-2xl focus:border-orange-700">
       <input  type="File" accept="image/*" (change)="onImageSelected($event)"
-             class="w-3/4 h-20 p-4 shadow-lg border-2 border-gray-300 rounded-b-3xl text-2xl focus:border-orange-700">
+              class="w-3/4 h-20 p-4 shadow-lg border-2 border-gray-300 rounded-b-3xl text-2xl focus:border-orange-700">
       <button
         class="w-3/4 h-16 p-4 mt-10 shadow-lg border-2 border-gray-300 rounded-3xl text-xl bg-orange-700 text-white">
-        Add Photographer
+        update photographer
       </button>
     </form>
   </div>

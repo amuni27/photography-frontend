@@ -12,5 +12,5 @@ import { PhotographerComponent } from './photographer/photographer.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'photographer-app';
+
 }
