@@ -35,10 +35,10 @@ export const environment = {
   LOGIN_URL:"login",
   NOTFOUND_URL:"**",
   PATH_MATCH:"full",
-  PHOTOGRAPHER_URL: "http://localhost:3434/api/photographer/",
-  PHOTOGRAPHERS_URL: "http://localhost:3434/api/photographer",
+  PHOTOGRAPHER_URL: "https://photography-4p1c.onrender.com/api/photographer/",
+  PHOTOGRAPHERS_URL: "https://photography-4p1c.onrender.com/api/photographer",
 
-  AUTH_URL: "http://localhost:3434/api/auth/",
+  AUTH_URL: "https://photography-4p1c.onrender.com/api/auth/",
   FORWARD_SLASH:"/",
   ARTWORK_BACKEND_URL: "/artwork/",
   ARTWORK_NO_FORWARD_SLASH_BACKEND_URL: "/artwork",
